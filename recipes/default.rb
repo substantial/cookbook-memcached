@@ -23,7 +23,7 @@ end
 
 package "libmemcache-dev" do
   case node['platform']
-  when "redhat","centos","fedora"
+  when "redhat","centos","amazon","scientific","fedora"
     package_name "libmemcache-devel"
   else
     package_name "libmemcache-dev"
@@ -37,7 +37,7 @@ service "memcached" do
 end
 
 case node['platform']
-when "redhat","centos","fedora"
+when "redhat","centos","amazon","scientific","fedora"
  template "/etc/sysconfig/memcached" do
   source "memcached.sysconfig.erb"
   owner "root"
